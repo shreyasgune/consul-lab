@@ -1,0 +1,17 @@
+global:
+  domain: consul # is the domain Consul uses for DNS queries.
+  datacenter: dc1 # is the name of your Consul datacenter.
+
+server:
+  replicas: 1
+  bootstrapExpect: 1
+
+client:
+  enabled: true
+  grpc: true
+
+ui:
+  enabled: true
+
+connectInject:
+  enabled: true

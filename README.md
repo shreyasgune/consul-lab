@@ -1,6 +1,8 @@
 # consul-demo
 Creating a consul cluster locally to play with the service-mesh concepts
 
+For the service-mesh demo : [Click here](https://github.com/shreyasgune/consul-demo/tree/main/service-mesh-demo)
+
 Consul is a service mesh solution providing a full featured control plane with service discovery, configuration, and segmentation functionality.
 
 ## Key-Features

@@ -1,0 +1,38 @@
+# specify a name for your Consul installation & datacenter
+global:
+  name: consul
+  datacenter: dc1
+
+server:
+  # specify that this Consul datacenter should run one server
+  replicas: 1
+  bootstrapExpect: 1
+  disruptionBudget:
+    enabled: true
+    maxUnavailable: 0
+
+client:
+  enabled: true
+  # enable grpc on your client to support Consul service mesh
+  grpc: true
+# enable the Consul web UI
+ui:
+  enabled: true
+
+connectInject:
+  enabled: true
+  # inject an envoy sidecar into every new pod,
+  # except for those with annotations that prevent injection
+  default: true
+  # these settings enable L7 metrics collection and were added in 1.5
+  centralConfig:
+    enabled: true
+    # set the default protocol (can be overwritten with annotations)
+    defaultProtocol: 'http'
+    # proxyDefaults is a raw json string that will be applied to all service mesh
+    # proxy sidecar pods that can include any valid configuration for the
+    # configured proxy.
+    proxyDefaults: |
+      {
+        "envoy_prometheus_bind_addr": "0.0.0.0:9102"
+      }

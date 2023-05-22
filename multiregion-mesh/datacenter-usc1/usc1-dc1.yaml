@@ -1,0 +1,13 @@
+global:
+  name: usc1-consul
+  enabled: true
+  datacenter: usc1-dc1
+server:
+  replicas: 1
+  securityContext:
+    runAsNonRoot: false
+    runAsUser: 0
+connectInject:
+  enabled: true
+controller:
+  enabled: true
